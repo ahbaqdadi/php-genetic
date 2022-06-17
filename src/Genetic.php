@@ -16,9 +16,9 @@ class Genetic
     private string $time;
     private Stopwatch $stopwatch;
     private array $display;
+    private int $epoche = 0;
 
     public function __construct(
-        private GeneModelInterface $geneModel,
         private DNAGeneratorInterface $dnaGenerator,
         private FitnessInterface $fitness,
         private MutatorInterface $mutator
@@ -27,23 +27,24 @@ class Genetic
         $this->stopwatch = new Stopwatch();
     }
 
-    public function run()
+    public function run($genes, $subject, $sizeSubject)
     {
         $this->stopwatch->start('genetic');
-        $dna = $this->dnaGenerator->generate(count($this->geneModel->getSubject()), $this->geneModel->getGenes());
-        $fitness = $this->fitness->getFitness($this->geneModel->getSubject(), $dna);
+        $dna = $this->dnaGenerator->generate($sizeSubject, $genes);
+        $fitness = $this->fitness->getFitness($subject, $dna);
 
         while(true)
         {
-            $mutate =  $this->mutator->mutate($dna, $this->geneModel->getGenes());
-            $newFitness = $this->fitness->getFitness($this->geneModel->getSubject(), $mutate);
+            $this->epoche += 1;
+            $mutate =  $this->mutator->mutate($dna, $genes);
+            $newFitness = $this->fitness->getFitness($subject, $mutate);
 
             if ($newFitness < $fitness) {
                 continue;
             }
 
             $dna = $mutate;
-            $this->display($dna, $fitness);
+            $this->display($dna, $fitness, $subject);
             $fitness = $newFitness;
             
             if ($newFitness >= count($dna)) {
@@ -76,14 +77,20 @@ class Genetic
         return $this->display;
     }
 
-    private function display($dna, $oldFitness)
+    public function getEpoche()
     {
-        $fitness = $this->fitness->getFitness($this->geneModel->getSubject(), $dna);
+        return $this->epoche;
+    }
+
+    private function display($dna, $oldFitness, $subject)
+    {
+        $fitness = $this->fitness->getFitness($subject, $dna);
         if ($oldFitness !== $fitness) {
             $display['generation'] = $fitness;
             $display['dna'] = $dna;
             $display['string'] = implode('', $dna);
             $display['time'] = (string)$this->stopwatch->lap('genetic');
+            $display['epoche'] = $this->epoche;
             $this->display[] = $display;
         }
     }

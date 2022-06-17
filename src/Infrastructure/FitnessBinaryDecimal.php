@@ -6,7 +6,7 @@ use Ahbaqdadi\PhpGenetic\Bridge\FitnessInterface;
 
 class FitnessBinaryDecimal implements FitnessInterface
 {
-    public function getFitness(array $target = [], array $genes = []) : float
+    public function getFitness($target = [], $genes = []) : float
     {
         $fit = [];
         foreach ($genes as $key => $value) {
