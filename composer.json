@@ -1,0 +1,19 @@
+{
+    "name": "ahbaqdadi/php-genetic",
+    "autoload": {
+        "psr-4": {
+            "Ahbaqdadi\\PhpGenetic\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ahbaqdadi"
+        }
+    ],
+    "require-dev": {
+        "symfony/var-dumper": "^6.1"
+    },
+    "require": {
+        "symfony/stopwatch": "^6.1"
+    }
+}
