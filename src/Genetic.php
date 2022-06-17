@@ -27,7 +27,7 @@ class Genetic
         $this->stopwatch = new Stopwatch();
     }
 
-    public function run($genes, $subject, $sizeSubject)
+    public function run(mixed $genes, mixed $subject, int $sizeSubject)
     {
         $this->stopwatch->start('genetic');
         $dna = $this->dnaGenerator->generate($sizeSubject, $genes);

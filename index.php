@@ -17,8 +17,8 @@ $genetic = new Genetic(
      $mutator = new Mutator(new DNAGenerator())
     );
 
-
-$genetic = $genetic->run(str_split(GeneModel::STRING_GENES), str_split('amir salam va kiram dahanet :D'), strlen('amir salam va kiram dahanet :D'));
+$subject = "hello world";
+$genetic = $genetic->run(str_split(GeneModel::STRING_GENES), str_split($subject), strlen($subject));
 dump($genetic->toString());
 dump($genetic->getTime());
 dump($genetic->getEpoche());
