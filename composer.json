@@ -2,6 +2,7 @@
     "name": "ahbaqdadi/php-genetic",
     "description": "A small, pluggable genetic algorithm toolkit for PHP.",
     "type": "library",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Ahbaqdadi\\PhpGenetic\\": "src/"

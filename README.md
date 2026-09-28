@@ -84,3 +84,7 @@ composer test
 - Runs are synchronous and keep improvement reports in memory.
 - A reachable solution is not guaranteed, so callers should choose an epoch
   budget appropriate for their workload.
+
+## License
+
+php-genetic is open-source software licensed under the [MIT License](LICENSE).
