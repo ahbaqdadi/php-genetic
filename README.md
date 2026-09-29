@@ -9,12 +9,8 @@ length.
 
 ## Installation
 
-The package is not currently published on Packagist. Install the development
-branch directly from GitHub:
-
 ```bash
-composer config repositories.php-genetic vcs https://github.com/ahbaqdadi/php-genetic
-composer require ahbaqdadi/php-genetic:dev-main
+composer require ahbaqdadi/php-genetic:^0.1
 ```
 
 ## Quick start
@@ -88,3 +84,5 @@ composer test
 ## License
 
 php-genetic is open-source software licensed under the [MIT License](LICENSE).
+
+See [CHANGELOG.md](CHANGELOG.md) for release notes.
