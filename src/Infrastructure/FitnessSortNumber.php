@@ -6,16 +6,17 @@ use Ahbaqdadi\PhpGenetic\Bridge\FitnessInterface;
 
 class FitnessSortNumber implements FitnessInterface
 {
-    public function getFitness($target = [], $genes = []) : float
+    public function getFitness(array $target, array $genes): float
     {
-        $fitness = 1;
+        $fitness = $genes === [] ? 0 : 1;
+        $geneCount = count($genes);
 
-        foreach (range(1, count($genes) - 1) as $key => $value) {
-            if ($genes[$value] > $genes[$value - 1]) {
-                $fitness += 1;
-            } 
+        for ($index = 1; $index < $geneCount; ++$index) {
+            if ($genes[$index] > $genes[$index - 1]) {
+                ++$fitness;
+            }
         }
 
-        return  $fitness;
+        return (float) $fitness;
     }
 }
