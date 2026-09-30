@@ -5,6 +5,13 @@ All notable changes to this project are documented in this file.
 The project follows [Semantic Versioning](https://semver.org/). While the major
 version is zero, minor releases may include breaking API changes.
 
+## Unreleased
+
+### Fixed
+
+- Avoid out-of-bounds reads and incorrect scores when the numeric-sorting
+  fitness strategy receives zero or one gene.
+
 ## [0.1.0] - 2026-09-29
 
 Initial experimental release.
