@@ -69,6 +69,11 @@ class Genetic
 
                 ++$this->epoche;
                 $mutate = $this->mutator->mutate($dna, $genes);
+
+                if (count($mutate) !== $sizeSubject) {
+                    throw new RuntimeException('The mutator returned an unexpected number of genes.');
+                }
+
                 $newFitness = $this->fitness->getFitness($subject, $mutate);
 
                 if ($newFitness < $fitness) {
