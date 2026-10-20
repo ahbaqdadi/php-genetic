@@ -7,6 +7,11 @@ version is zero, minor releases may include breaking API changes.
 
 ## Unreleased
 
+### Fixed
+
+- Reject custom mutators that change the DNA length instead of allowing a
+  shorter candidate to satisfy a reduced success threshold.
+
 ## [0.1.1] - 2026-10-07
 
 ### Fixed

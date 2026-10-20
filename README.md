@@ -60,6 +60,8 @@ $genetic->run($genes, $target, count($target), maxEpochs: 10_000);
 - The requested subject size and epoch budget must be positive.
 - The built-in mutator needs at least one value different from the selected DNA
   gene. It rejects an unusable pool instead of recursing indefinitely.
+- Custom mutators must preserve the DNA length. `run()` rejects a different
+  length instead of treating a truncated candidate as a completed solution.
 - A fitness implementation must use the DNA length as its success score. With
   `FitnessString`, every target value must therefore be reachable from the gene
   pool.

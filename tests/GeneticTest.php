@@ -70,6 +70,20 @@ final class GeneticTest extends TestCase
 
         $genetic->run(['a', 'b'], ['b'], 1, 2);
     }
+
+    public function testItRejectsAMutatorThatChangesTheDnaSize(): void
+    {
+        $genetic = new Genetic(
+            new FixedGenerator(['a', 'a']),
+            new MatchingFitness(),
+            new FixedMutator(['b']),
+        );
+
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage('The mutator returned an unexpected number of genes.');
+
+        $genetic->run(['a', 'b'], ['b', 'b'], 2);
+    }
 }
 
 final class FixedGenerator implements DNAGeneratorInterface
