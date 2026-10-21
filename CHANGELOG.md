@@ -7,6 +7,8 @@ version is zero, minor releases may include breaking API changes.
 
 ## Unreleased
 
+## [0.1.2] - 2026-10-21
+
 ### Fixed
 
 - Reject custom mutators that change the DNA length instead of allowing a
@@ -39,5 +41,6 @@ Initial experimental release.
   implemented.
 - Runs synchronously and keeps improvement reports in memory.
 
+[0.1.2]: https://github.com/ahbaqdadi/php-genetic/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/ahbaqdadi/php-genetic/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/ahbaqdadi/php-genetic/releases/tag/v0.1.0
